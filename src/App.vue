@@ -14,7 +14,7 @@ export default {
 <template>
   <AppHeader message="Yu-Gi-Oh Api" />
   <main>
-
+    <CardList />
   </main>
 </template>
 
@@ -24,6 +24,6 @@ export default {
 
 
 main {
-  padding: 5rem;
+  padding: 1rem;
 }
 </style>
