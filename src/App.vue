@@ -1,13 +1,37 @@
 <script>
+import axios from 'axios'
 import AppHeader from './components/AppHeader.vue'
-import CardList from './components/CardList.vue';
+import CardList from './components/CardList.vue'
 
+import { store } from './store';
 
 export default {
   components: {
     AppHeader,
     CardList,
-  }
+  },
+  data() {
+    return {
+      store,
+    }
+  },
+  methods: {
+    getCards() {
+      axios
+        .get(store.apiURL)
+        .then((res => {
+          store.cardList = res.data.data;
+          console.log(store.cardList);
+        }))
+        .catch((err) => {
+          console.log("Errori", err);
+        })
+    }
+  },
+  created() {
+    this.getCards();
+  },
+
 }
 </script>
 

@@ -1,11 +1,17 @@
 <script>
+import { store } from '../store';
 import SingleCard from './SingleCard.vue';
 
 export default {
     name: 'CardList',
     components: {
-        SingleCard
-    }
+        SingleCard,
+    },
+    data() {
+        return {
+            store
+        }
+    },
 }
 </script>
 
@@ -21,8 +27,8 @@ export default {
                 <h4># Carte Trovate</h4>
             </div>
             <div class="row">
-                <div class="col">
-                    <SingleCard />
+                <div v-for="card in store.cardList" :key="card.id" class="col">
+                    <SingleCard :info="card" />
                 </div>
             </div>
 
@@ -49,7 +55,7 @@ section {
 
     .row {
         display: flex;
-        gap: 1rem;
+        gap: 2rem;
         flex-wrap: wrap;
 
         .col {
