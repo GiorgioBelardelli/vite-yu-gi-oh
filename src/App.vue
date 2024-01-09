@@ -19,8 +19,14 @@ export default {
   },
   methods: {
     getCards() {
+      let myURL = store.apiURL;
+
+      if (store.filterTerm !== "") {
+        myURL += `?archetype=${store.filterTerm}`;
+      }
+
       axios
-        .get(store.apiURL)
+        .get(myURL)
         .then((res => {
           store.cardList = res.data.data;
         }))
@@ -28,15 +34,15 @@ export default {
           console.log("Errori", err);
         })
     },
+
     getArchetypes() {
       axios
         .get(store.archetypesURL)
         .then((res => {
-          // store.archetypeList = res.data.data;
-          console.log(res.data);
+          store.archetypeList = res.data;
         }))
         .catch((err) => {
-          // console.log("Errori", err);
+          console.log("Errori", err);
         })
     },
   },

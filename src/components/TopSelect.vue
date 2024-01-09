@@ -6,7 +6,8 @@ export default {
 
     data() {
         return {
-            store
+            store,
+            optionValue: "",
         }
     },
 }
@@ -16,12 +17,12 @@ export default {
 <template>
     <div class="container">
         <div class="select-container">
-            <select id="archetype">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="vw">VW</option>
-                <option value="audi" selected>Audi</option>
+            <select v-model="optionValue" id="archetype">
+                <option v-for="archetype in store.archetypeList" :value="archetype.archetype_name">
+                    {{ archetype.archetype_name }}
+                </option>
             </select>
+            <p>opzione selezionata {{ optionValue }}</p>
         </div>
     </div>
 </template>
