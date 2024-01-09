@@ -57,7 +57,7 @@ export default {
 <template>
   <AppHeader message="Yu-Gi-Oh Api" />
   <main>
-    <TopSelect />
+    <TopSelect @filter="getCards" />
     <CardList />
   </main>
 </template>

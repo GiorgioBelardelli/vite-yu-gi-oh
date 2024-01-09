@@ -7,7 +7,6 @@ export default {
     data() {
         return {
             store,
-            optionValue: "",
         }
     },
 }
@@ -17,12 +16,12 @@ export default {
 <template>
     <div class="container">
         <div class="select-container">
-            <select v-model="optionValue" id="archetype">
+            <select v-model="store.filterTerm" @change="$emit('filter')" id="archetype">
                 <option v-for="archetype in store.archetypeList" :value="archetype.archetype_name">
                     {{ archetype.archetype_name }}
                 </option>
             </select>
-            <p>opzione selezionata {{ optionValue }}</p>
+            <p>opzione selezionata {{ store.filterTerm }}</p>
         </div>
     </div>
 </template>
