@@ -17,11 +17,6 @@ export default {
 
 <template>
     <div class="container">
-
-        <div class="container-filter">
-            <h1>FILTRO VA QUA</h1>
-        </div>
-
         <section>
             <div class="msg-container">
                 <h4># Carte Trovate</h4>
@@ -62,9 +57,5 @@ section {
             background-color: $bg-color;
         }
     }
-}
-
-.container-filter {
-    padding: 1.5rem;
 }
 </style>

@@ -2,6 +2,7 @@
 import axios from 'axios'
 import AppHeader from './components/AppHeader.vue'
 import CardList from './components/CardList.vue'
+import TopSelect from './components/TopSelect.vue';
 
 import { store } from './store';
 
@@ -9,6 +10,7 @@ export default {
   components: {
     AppHeader,
     CardList,
+    TopSelect,
   },
   data() {
     return {
@@ -21,15 +23,26 @@ export default {
         .get(store.apiURL)
         .then((res => {
           store.cardList = res.data.data;
-          console.log(store.cardList);
         }))
         .catch((err) => {
           console.log("Errori", err);
         })
-    }
+    },
+    getArchetypes() {
+      axios
+        .get(store.archetypesURL)
+        .then((res => {
+          // store.archetypeList = res.data.data;
+          console.log(res.data);
+        }))
+        .catch((err) => {
+          // console.log("Errori", err);
+        })
+    },
   },
   created() {
     this.getCards();
+    this.getArchetypes();
   },
 
 }
@@ -38,6 +51,7 @@ export default {
 <template>
   <AppHeader message="Yu-Gi-Oh Api" />
   <main>
+    <TopSelect />
     <CardList />
   </main>
 </template>
