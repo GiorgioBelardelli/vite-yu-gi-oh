@@ -21,7 +21,7 @@ export default {
                     {{ archetype.archetype_name }}
                 </option>
             </select>
-            <p>opzione selezionata {{ store.filterTerm }}</p>
+            <!-- <p>opzione selezionata {{ store.filterTerm }}</p> -->
         </div>
     </div>
 </template>

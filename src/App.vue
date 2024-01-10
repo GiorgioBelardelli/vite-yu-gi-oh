@@ -19,9 +19,10 @@ export default {
   },
   methods: {
     getCards() {
-      let myURL = store.apiURL;
+      let myURL = store.narrowURL;
 
       if (store.filterTerm !== "") {
+        myURL = store.apiURL;
         myURL += `?archetype=${store.filterTerm}`;
       }
 
